@@ -2,3 +2,9 @@
 
 %:
 	dh $@
+
+override_dh_auto_build:
+	make 	LIBOWFAT_HEADERS=/usr/include \
+		LIBOWFAT_LIBRARY=/usr/lib \
+		FEATURES="-DWANT_SYSLOGS -DDEBUG_HTTPERROR" \
+		CC="/usr/bin/diet gcc"
